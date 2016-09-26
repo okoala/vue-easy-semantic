@@ -1,6 +1,6 @@
 {
   "name": "vue2-easy-semantic",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "vue2 easy semantic",
   "license": "MIT",
   "main": "dist/vue2-easy-semantic.js",
@@ -64,8 +64,5 @@
     "vue-loader": "9.4.0",
     "webpack": "^1.13.2"
   },
-  "author": "okoala",
-  "dependencies": {
-    "deepmerge": "^0.2.10"
-  }
+  "author": "okoala"
 }
