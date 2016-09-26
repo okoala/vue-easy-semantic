@@ -39,11 +39,19 @@ function createUI (className, domType) {
         default: ''
       },
       setting: {
-        type: Object
+        type: Object,
+        default: function () {
+          return {}
+        }
       },
       domType: {
         type: String,
         default: domType
+      }
+    },
+    data: function data () {
+      return {
+        attrs: {}
       }
     },
     computed: {
@@ -61,7 +69,8 @@ function createUI (className, domType) {
         on: {
           click: function (e) { return this$1.$emit('click', e); },
           dbclick: function (e) { return this$1.$emit('dbclick', e); }
-        }
+        },
+        attrs: this.attrs
       }
 
       if (this.domType === 'img') {
@@ -275,6 +284,14 @@ var Dimmer = merge(createUI(['ui', 'dimmer']), {
   }
 })
 var Dropdown = merge(createUI(['ui', 'dropdown']), {
+  props: {
+    multiple: String
+  },
+  beforeMount: function beforeMount () {
+    if (this.multiple) {
+      this.attrs.multiple = this.multiple
+    }
+  },
   mounted: function mounted$6 () {
     var this$1 = this;
 
@@ -286,6 +303,7 @@ var Dropdown = merge(createUI(['ui', 'dropdown']), {
       newNode.innerHTML = this.$el.innerHTML
       this.$el.parentNode.replaceChild(newNode, this.$el)
     }
+
     $(this.$el).dropdown(this.setting)
   }
 })
@@ -556,3 +574,4 @@ function install (Vue) {
 return install;
 
 })));
+//# sourceMappingURL=vue2-easy-semantic.js.map

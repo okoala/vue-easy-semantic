@@ -5,11 +5,9 @@ delete webpackConf.entry
 
 webpackConf.resolve.alias.vue = 'vue/dist/vue.js'
 
-module.exports = function (config) {
-  config.set({
+module.exports = {
     browsers: ['PhantomJS'],
     frameworks: ['jasmine'],
-    reporters: ['spec'],
     // this is the entry file for all our tests.
     files: [
       'https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js',
@@ -27,8 +25,5 @@ module.exports = function (config) {
       quiet: true,
       noInfo: true
     },
-    colors: true,
-    logLevel: config.LOG_ERROR,
-    singleRun: true
-  })
+    colors: true
 }

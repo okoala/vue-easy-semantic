@@ -115,6 +115,14 @@ const Dimmer = merge(createUI(['ui', 'dimmer']), {
   }
 })
 const Dropdown = merge(createUI(['ui', 'dropdown']), {
+  props: {
+    multiple: String
+  },
+  beforeMount () {
+    if (this.multiple) {
+      this.attrs.multiple = this.multiple
+    }
+  },
   mounted () {
     if (this.type) {
       const newNode = document.createElement(this.type)
@@ -124,6 +132,7 @@ const Dropdown = merge(createUI(['ui', 'dropdown']), {
       newNode.innerHTML = this.$el.innerHTML
       this.$el.parentNode.replaceChild(newNode, this.$el)
     }
+
     $(this.$el).dropdown(this.setting)
   }
 })

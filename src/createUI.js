@@ -26,11 +26,19 @@ export default function createUI (className, domType = 'div') {
         default: ''
       },
       setting: {
-        type: Object
+        type: Object,
+        default: function () {
+          return {}
+        }
       },
       domType: {
         type: String,
         default: domType
+      }
+    },
+    data () {
+      return {
+        attrs: {}
       }
     },
     computed: {
@@ -46,7 +54,8 @@ export default function createUI (className, domType = 'div') {
         on: {
           click: (e) => this.$emit('click', e),
           dbclick: (e) => this.$emit('dbclick', e)
-        }
+        },
+        attrs: this.attrs
       }
 
       if (this.domType === 'img') {
