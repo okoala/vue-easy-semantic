@@ -1,5 +1,5 @@
 /**
- * vue2-easy-semantic v1.0.0
+ * vue2-easy-semantic v1.0.1
  * (c) 2016 Koala Huang
  * @license MIT
  */
